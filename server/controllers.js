@@ -12,7 +12,16 @@ module.exports = {
         res.status(200).send(houseDB)
     },
     "createHouse": (req, res) =>{
-
+        const {address, price, imageURL} = req.body
+        const id = globalID
+        houseDB.push({
+            id,
+            address,
+            price,
+            imageURL
+        })
+        res.status(200).send(houseDB)
+        globalID++
     },
     "updateHouse": (req, res)=>{
 
